@@ -1,7 +1,5 @@
 # Week 3 Pluralsight Content 
 
-from fractions import Fractions
-
 def banner_message(message, banner = "-"):
     
     line = banner * 11
@@ -78,19 +76,27 @@ print(f"Output: {output}\n")
 banner_message("Can as Swallow carry a coconut?")
 weight_swallow = 60
 weight_coconut = 1450
-carry_limit = weight_swallow / 3
+carry_weight_denominator = 3
 can_carry = False
 carry_message = f"Can the Swallow carry the coconut is: {can_carry}"
 
-def can_swallow_carry_coconut(weight_swallow, weight_coconut, carry_limit):
+def get_carry_limit(weight_swallow, carry_weight_denominator):
+    carry_limit = weight_swallow / carry_weight_denominator
+    print(f"Carry limit is (Weight of Swallow: {weight_swallow}g's) / (Fractional of Swallows weight it can carry: {carry_weight_denominator}) || {weight_swallow}/{can_carry}")
+
+    return carry_limit
+
+def can_swallow_carry_coconut(weight_swallow, weight_coconut, carry_weight_denominator):
+    can_carry = False
+    carry_limit = get_carry_limit(weight_swallow, carry_weight_denominator)
+
     if(carry_limit > weight_coconut):
         can_carry = True
+    print(f"Boolean for If the Swallow Can Carry is: {can_carry}")
+    print(f"Amount needed to carry: {weight_coconut}g's")
+    print(f"Can carry {carry_limit}g's")
+    return can_carry
 
-weight_swallow = 60
-weight_coconut = 1450
-carry_limit = 60 / 3
-
-
-
+can_swallow_carry_coconut(weight_swallow, weight_coconut, carry_weight_denominator)
 
 
